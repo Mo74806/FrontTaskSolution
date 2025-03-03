@@ -52,6 +52,7 @@ ${
       </div>
       <div className="p-[45px] text-textLight lg:ms-[30px] dark:text-textDark  rounded-l-[40px] lg:rounded-l-[0px] rounded-r-[40px]  flex-grow-1  px-[45px] flex lg:mt-0 mt-[20px]  flex-col justify-center  bg-white dark:bg-[#143AA2] ">
         <img
+          alt="company_logo"
           src="/images/suppliers.png"
           className="lg:h-[80%]  rounded-[8px]"
         />
