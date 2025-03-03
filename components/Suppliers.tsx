@@ -2,7 +2,6 @@
 import React from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
-import { Star } from "lucide-react";
 import Options from "./Options";
 import ClientReview from "./ClientReview";
 
