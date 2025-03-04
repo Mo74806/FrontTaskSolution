@@ -166,6 +166,9 @@ body {
   .nav-item {
     @apply text-[18px] text-[#4F4F4F] dark:text-textDark  cursor-pointer hover:text-primary;
   }
+  .gradient1 {
+    @apply bg-[linear-gradient(to_right,#143AA2,#143AA2,#143AA2,#3E8DE3)];
+  }
 }
 .services-bg {
   background-image: url("/images/services-bg.png"); /* Replace with your image path */

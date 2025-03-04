@@ -9,7 +9,7 @@ const Options = () => {
     <section className="flex flex-col lg:flex-row  mx-auto justify-center h-full mt-[51px]">
       {/* Left Section */}
       <div className="flex flex-col  gap-y-[10px] lg:gap-y-[30px] lg:w-[30%]  h-full">
-        {["", 1, 2, 3].map((item, index) => (
+        {[0, 1, 2, 3].map((_, index) => (
           <div
             onClick={() => setSelectedOptionIndex(index)}
             key={index}
@@ -20,9 +20,9 @@ const Options = () => {
               ${index === 3 && "rounded-bl-[40px]"}
               ${
                 selectedOptionIndex === index
-                  ? "bg-[linear-gradient(to_right,#143AA2,#143AA2,#143AA2,#3E8DE3)] text-white"
+                  ? "gradient1 text-white"
                   : "bg-white text-[#143AA2]"
-              }   hover:bg-[linear-gradient(to_right,#143AA2,#143AA2,#143AA2,#3E8DE3)] hover:text-white transition-all duration-600`}
+              }   hover:gradient1 hover:text-white transition-all duration-600`}
           >
             <p className="py-[16px] lg:py-[58px] px-[41px]">Consultants</p>
             <Image

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import Head from "next/head";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,6 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="preload" as="image" href="/images/hero.png" />
+      </Head>
+
       <body className={`${inter.variable} antialiased`}>
         <ThemeProvider attribute="class">{children}</ThemeProvider>
       </body>

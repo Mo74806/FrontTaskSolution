@@ -12,6 +12,7 @@ const Hero = () => {
         alt="hero"
         fill
         priority
+        unoptimized
         className="absolute inset-0 object-cover"
       />
 
