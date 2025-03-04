@@ -21,9 +21,11 @@ const Suppliers = () => {
               Be the Go-To Supplier for Global Data Center Giants
             </span>
           </div>
-
           <div className="flex flex-col col ms-auto">
-            <Button className="py-[16px] bg-[#143AA2] text-white px-[30px] relative">
+            <Button
+              variant={"ghost"}
+              className="py-[16px] bg-[linear-gradient(to_right,#143AA2,#143AA2,#143AA2,#143AA2,#3E8DE3,#3E8DE3)]   dark:bg-blue-600 cursor-pointer text-white hover:bg-none hover:bg-transparent hover:border hover:border-[#143aa2] hover:text-[#143aa2] border dark:text-white  transition-all duration-300 px-[30px] relative"
+            >
               Talk to an Expert{" "}
               <Image
                 src="/images/Arrow up-right.png"
@@ -48,158 +50,26 @@ const Suppliers = () => {
           </div>
         </div>
         <div className="flex gap-x-[20px] mt-[41px]">
-          <Button className="py-[16px] bg-[#143AA2] text-white px-[25px] lg:px-[40px] xl:px-[60px] ">
+          <Button className="py-[16px] bg-[#143AA2] transition-all duration-300  hover:bg-transparent hover:border hover:border-[#143aa2] hover:text-[#143aa2] border cursor-pointer text-white px-[25px] lg:px-[40px] xl:px-[60px] ">
             Buyers
           </Button>
-          <Button className="py-[16px] bg-white text-textLight px-[25px] lg:px-[40px] xl:px-[60px] ">
+          <Button className="py-[16px] bg-white transition-all duration-300  hover:border-[#143aa2] hover:bg-[#143aa2] border border-white cursor-pointer text-textLight hover:text-white  px-[25px] lg:px-[40px] xl:px-[60px] ">
             Suppliers
           </Button>
         </div>
-        <div className="bg-white justify-between gap-2 lg:gap-3  mt-[18px] p-[20px] lg:p-[31px] xl:p-[41px] rounded-[16px] grid grid-cols-2  lg:grid-cols-4 xl:grid-cols-6">
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
-          <Image
-            src="/images/company.png"
-            width={142}
-            height={78}
-            alt="company_logo"
-          />
+        <div className="bg-white text-center  gap-2 lg:gap-3  mt-[18px] p-[20px] lg:p-[31px] xl:p-[41px] rounded-[16px] grid grid-cols-2  lg:grid-cols-4 xl:grid-cols-6">
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17].map(
+            (index) => (
+              <Image
+                key={index}
+                className=" mx-auto  align-middle align-self-center flex h-full object-scale-down"
+                src={`/images/company${index + 1}.png`}
+                width={142}
+                height={78}
+                alt="company_logo"
+              />
+            )
+          )}
         </div>
 
         <div className="flex flex-col mt-[85px]">
@@ -225,10 +95,10 @@ const Suppliers = () => {
                 their business
               </p>
             </div>
-            <div className=" flex-grow-1  text-center">
+            <div className=" flex-grow-1 lg:w-auto w-full  text-center">
               <Button
                 variant={"secondary"}
-                className="bg-white mt-3 lg:mt-0 text-[20px] lg:text-[24px] xl:text-[32px] text-[#143AA2] px-[10px] lg:px-[39px]  xl:px-[59px] py-[11px]  font-bold"
+                className="bg-white cursor-pointer lg:w-auto w-full hover:bg-transparent border border-white hover:text-white transition-all duration-300   mt-3 lg:mt-0 text-[20px] lg:text-[24px] xl:text-[32px] text-[#143AA2] px-[10px] lg:px-[39px]  xl:px-[59px] py-[20px]   font-bold"
               >
                 Request a Demo
               </Button>

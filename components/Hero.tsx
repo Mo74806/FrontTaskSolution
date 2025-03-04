@@ -1,3 +1,5 @@
+"use client";
+import Image from "next/image";
 import React from "react";
 import { Button } from "./ui/button";
 import StatsBox from "./StatsBox";
@@ -6,10 +8,12 @@ const Hero = () => {
   return (
     <section className="relative w-full min-h-[calc(100vh-83px)]" id="hero">
       {/* Background Image */}
-      <img
+      <Image
         src="/images/hero.png"
         alt="hero"
-        className="absolute inset-0 w-full h-full object-cover"
+        fill
+        priority
+        className="absolute inset-0 object-cover"
       />
 
       {/* Content */}
@@ -24,16 +28,16 @@ const Hero = () => {
         </p>
 
         <div className="flex gap-x-[33px] mb-[26px] mt-[30px]">
-          <Button className="bg-white cursor-pointer font-bold text-[#143aa2] p-[25px] py-[18px] hover:bg-transparent hover:text-white border hover:border-white transition-all duration-300 ">
+          <Button className="bg-white cursor-pointer font-bold text-[#143aa2] p-[25px] py-[18px] hover:bg-transparent hover:text-white border hover:border-white transition-all duration-300">
             Find Supplier
           </Button>
-          <Button className="bg-transparent border px-[25px] py-[18px] text-white font-bold hover:border-[#143aa2] hover:bg-[#143aa2]  transition-all duration-300 cursor-pointer">
+          <Button className="bg-transparent border px-[25px] py-[18px] text-white font-bold hover:border-[#143aa2] hover:bg-[#143aa2] transition-all duration-300 cursor-pointer">
             Join as Supplier
           </Button>
         </div>
 
         {/* Stats Section */}
-        <div className="bg-black/40 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-y-2 mt-auto backdrop-blur-xs rounded-2xl px-[36px] py-[40px] mb-[30px] ">
+        <div className="bg-black/40 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-y-2 mt-auto backdrop-blur-xs rounded-2xl px-[36px] py-[40px] mb-[30px]">
           <StatsBox
             icon="/images/data-center.png"
             number={1000}

@@ -15,15 +15,18 @@ const Navbar = () => {
 
   useEffect(() => {
     setMounted(true);
+    if (!theme) {
+      const systemPrefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      setTheme(systemPrefersDark ? "dark" : "light");
+    }
   }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        setShowNavbar(false); // Hide navbar on scroll down
-      } else {
-        setShowNavbar(true); // Show navbar on scroll up
-      }
+      if (window.scrollY > lastScrollY) setShowNavbar(false);
+      else setShowNavbar(true);
       setLastScrollY(window.scrollY);
     };
 
@@ -37,13 +40,11 @@ const Navbar = () => {
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      {/* Logo */}
       <div className="flex items-center gap-x-[12px]">
         <Image src="/images/logo.png" alt="logo" width={51} height={44} />
         <p className="text-[#143aa2]  text-[28px] font-semibold">ProcureDC</p>
       </div>
 
-      {/* Desktop Menu */}
       <ul className="hidden md:flex gap-x-[20px] text-[18px] text-[#4F4F4F] dark:text-textDark font-regular">
         <li>Solutions</li>
         <li>Features</li>
@@ -51,15 +52,17 @@ const Navbar = () => {
         <li>Contact</li>
       </ul>
 
-      {/* Desktop Actions */}
       <ul className="hidden md:flex gap-x-[20px] items-center text-[16px] font-regular">
         <li className="text-primary dark:text-textDark">Sign In</li>
         <li>
-          <Button className="bg-[#143aa2] dark:bg-blue-600 cursor-pointer text-white hover:bg-transparent hover:border hover:border-[#143aa2] hover:text-[#143aa2] border border-transparent transition-all duration-300">
+          <Button
+            variant={"ghost"}
+            className="dark:text-white bg-[linear-gradient(to_right,#143AA2,#143AA2,#143AA2,#143AA2,#3E8DE3,#3E8DE3)]   dark:bg-blue-600 cursor-pointer text-white hover:bg-none hover:bg-transparent hover:border hover:border-[#143aa2] hover:text-[#143aa2] border  transition-all duration-300"
+          >
             Request a Demo
           </Button>
         </li>
-        {/* Dark Mode Toggle */}
+
         <li>
           <Button
             variant="default"
@@ -75,7 +78,6 @@ const Navbar = () => {
         </li>
       </ul>
 
-      {/* Mobile Menu (ShadCN Sheet) */}
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="ghost" className="md:hidden inline-flex">
@@ -109,7 +111,6 @@ const Navbar = () => {
                 </Button>
               </li>
               <li>
-                {/* Dark Mode Toggle */}
                 <Button
                   variant="default"
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
