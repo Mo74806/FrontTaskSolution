@@ -42,6 +42,8 @@ const About = () => {
         </p>
 
         <img
+          width={"0"}
+          height={"0"}
           alt="video"
           src="/images/video.png"
           className="w-full  mt-[32px] object-scale-down"

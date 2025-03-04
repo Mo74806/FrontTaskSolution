@@ -11,7 +11,7 @@ const Sponsors = () => {
             data-bs-placement="right"
             title={`company${index + 1}`}
             key={index}
-            className=" mx-auto  align-middle align-self-center flex h-full object-scale-down"
+            className="  mx-auto  align-middle align-self-center flex h-full object-scale-down"
             src={`/images/company${index + 1}.png`}
             width={142}
             height={78}

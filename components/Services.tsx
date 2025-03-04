@@ -34,7 +34,7 @@ const Services = () => {
                 <div className="absolute cursor-pointer right-0 bottom-0 mb-[10px] mr-[20px]">
                   <Image
                     src="/images/Arrow up-right.png"
-                    width={20} // Default size for mobile
+                    width={20}
                     height={20}
                     className="object-scale-down  w-[20px] h-[20px] sm:w-[25px] sm:h-[25px] md:w-[30px] md:h-[30px] lg:w-[35px] lg:h-[35px] xl:w-[40px] xl:h-[40px]"
                     alt="arrow"
@@ -49,11 +49,15 @@ const Services = () => {
       {/* Background Images (Centered and Matches Foreground Height) */}
       <div className="absolute inset-0 w-full h-full flex justify-center items-center">
         <img
+          width={0}
+          height={0}
           src="/images/services-bg.png"
           alt="services background"
           className="w-full h-full object-cover object-center"
         />
         <img
+          width={0}
+          height={0}
           src="/images/services-ovelay.png"
           alt="services overlay"
           className="absolute w-full h-full object-cover object-center"

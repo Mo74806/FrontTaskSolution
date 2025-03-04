@@ -43,9 +43,11 @@ const Options = () => {
       {/* Right Section */}
       <div className="p-[45px]    text-textLight lg:ms-[30px]  dark:text-textDark rounded-l-[40px] lg:rounded-l-[0px] rounded-r-[40px]   lg:mt-0 mt-[20px]   flex flex-col   justify-center bg-white dark:bg-[#143AA2]">
         <img
+          width={0}
+          height={0}
           alt="company_logo"
           src="/images/suppliers.png"
-          className="lg:h-[80%] rounded-[8px]"
+          className="lg:h-[80%] rounded-[8px] object-scale-down w-auto"
         />
         <div className="w-full mt-[15px]">
           <p className="text-[20px] lg:text-[26px] font-bold">Title Here</p>
