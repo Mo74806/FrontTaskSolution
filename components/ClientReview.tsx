@@ -6,7 +6,7 @@ const ClientReview = ({ index }: { index: number }) => {
   return (
     <div
       key={index}
-      className="bg-white rounded-[16px] p-[18px] lg:p-[24px] xl:p-[32px]"
+      className="bg-bgWhite dark:bg-black  cursor-pointer hover:scale-[105%] hover:shadow-lg tranisition-all duration-300  hover:dark:shadow-white  rounded-[16px] p-[18px] lg:p-[24px] xl:p-[32px]"
     >
       <div className="flex flex-row gap-x-[16px] items-center">
         <Image
@@ -20,12 +20,12 @@ const ClientReview = ({ index }: { index: number }) => {
           <p className="text-[16px] lg:text-[18px] xl:text-[20px] font-bold">
             Sarah Johnson
           </p>
-          <span className=" text-[14px] xl:text-[16px] text-[#4B5563]">
+          <span className=" text-[14px] xl:text-[16px] text-[#4B5563] dark:text-white">
             Procurement Manager
           </span>
         </div>
       </div>
-      <p className="mt-[14px] lg:mt-[20px] xl:mt-[26px] text-[14px] xl:text-[16px] text-[#4B5563]">
+      <p className="mt-[14px] lg:mt-[20px] xl:mt-[26px] text-[14px] xl:text-[16px] text-[#4B5563] dark:text-white">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo
         accusamus libero aperiam soluta voluptate veritatis consequatur minus
         voluptas provident eligendi, illum possimus tempore modi, voluptatem,
