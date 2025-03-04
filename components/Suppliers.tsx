@@ -7,7 +7,8 @@ import ClientReview from "./ClientReview";
 
 const Suppliers = () => {
   return (
-    <div
+    <section
+      id="features"
       style={{ backgroundSize: "contain" }}
       className="relative   bg-no-repeat bg-bottom bg-[url('/images/footer.png')] pb-[100px]"
     >
@@ -106,7 +107,7 @@ const Suppliers = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

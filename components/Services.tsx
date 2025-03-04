@@ -3,7 +3,7 @@ import React from "react";
 
 const Services = () => {
   return (
-    <div className="relative border">
+    <section id="solutions" className="relative border">
       {/* Foreground Content (Sets Height) */}
       <div className="relative z-10 xl:px-[100px] sm:px-[50px] px-[20px] w-full">
         <div className="flex flex-col mt-[73px]">
@@ -59,7 +59,7 @@ const Services = () => {
           className="absolute w-full h-full object-cover object-center"
         />
       </div>
-    </div>
+    </section>
   );
 };
 

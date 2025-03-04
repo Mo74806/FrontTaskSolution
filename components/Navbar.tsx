@@ -3,7 +3,12 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -12,6 +17,7 @@ const Navbar = () => {
   const [mounted, setMounted] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isOpen, setIsOpen] = useState(false); // Track Sheet open state
 
   useEffect(() => {
     setMounted(true);
@@ -34,6 +40,15 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  // ✅ Smooth Scroll Function
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      setIsOpen(false); // 🔥 Close the Sheet on mobile
+    }
+  };
+
   return (
     <nav
       className={`fixed top-0 z-50 flex items-center justify-between w-full bg-bgLight dark:bg-bgDark py-4 px-6 md:px-[100px] shadow-lg transition-transform duration-300 ${
@@ -42,32 +57,58 @@ const Navbar = () => {
     >
       <div className="flex items-center gap-x-[12px]">
         <Image src="/images/logo.png" alt="logo" width={51} height={44} />
-        <p className="text-[#143aa2]  text-[28px] font-semibold">ProcureDC</p>
+        <p className="text-[#143aa2] text-[28px] font-semibold">ProcureDC</p>
       </div>
 
+      {/* Desktop Navigation */}
       <ul className="hidden md:flex gap-x-[20px] text-[18px] text-[#4F4F4F] dark:text-textDark font-regular">
-        <li>Solutions</li>
-        <li>Features</li>
-        <li>Pricing</li>
-        <li>Contact</li>
+        <li>
+          <button
+            onClick={() => scrollToSection("solutions")}
+            className="cursor-pointer"
+          >
+            Solutions
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => scrollToSection("features")}
+            className="cursor-pointer"
+          >
+            Features
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => scrollToSection("pricing")}
+            className="cursor-pointer"
+          >
+            Pricing
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="cursor-pointer"
+          >
+            Contact
+          </button>
+        </li>
       </ul>
 
+      {/* Right Section */}
       <ul className="hidden md:flex gap-x-[20px] items-center text-[16px] font-regular">
         <li className="text-primary dark:text-textDark">Sign In</li>
         <li>
-          <Button
-            variant={"ghost"}
-            className="dark:text-white bg-[linear-gradient(to_right,#143AA2,#143AA2,#143AA2,#143AA2,#3E8DE3,#3E8DE3)]   dark:bg-blue-600 cursor-pointer text-white hover:bg-none hover:bg-transparent hover:border hover:border-[#143aa2] hover:text-[#143aa2] border  transition-all duration-300"
-          >
+          <Button className="bg-[#143aa2] dark:bg-blue-600 text-white hover:border hover:border-[#143aa2] hover:text-[#143aa2] transition-all duration-300">
             Request a Demo
           </Button>
         </li>
-
         <li>
           <Button
             variant="default"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="cursor-pointer text-white dark:text-gray-700 "
+            className="cursor-pointer text-white dark:text-gray-700"
           >
             {mounted && theme === "dark" ? (
               <Sun size={20} />
@@ -78,9 +119,16 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <Sheet>
+      {/* Mobile Menu */}
+      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <SheetTitle className="sr-only text-white">Navigation</SheetTitle>
+
         <SheetTrigger asChild>
-          <Button variant="ghost" className="md:hidden inline-flex">
+          <Button
+            variant="ghost"
+            className="md:hidden inline-flex"
+            onClick={() => setIsOpen(true)}
+          >
             <Menu size={28} />
           </Button>
         </SheetTrigger>
@@ -96,17 +144,43 @@ const Navbar = () => {
           </div>
           <div className="flex flex-col items-start gap-6 mt-6">
             <ul className="flex flex-col gap-4 text-[#4F4F4F] dark:text-textDark">
-              <li className="nav-item">Solutions</li>
-              <li className="nav-item">Features</li>
-              <li className="nav-item">Pricing</li>
-              <li className="nav-item">Contact</li>
-            </ul>
-            <ul className="flex flex-col gap-4 text-[16px] font-regular">
-              <li className="nav-item text-primary dark:text-textDark">
-                Sign In
+              <li>
+                <button
+                  onClick={() => scrollToSection("solutions")}
+                  className="cursor-pointer"
+                >
+                  Solutions
+                </button>
               </li>
               <li>
-                <Button className="bg-[#143aa2]  dark:bg-blue-600 cursor-pointer text-white w-full  ">
+                <button
+                  onClick={() => scrollToSection("features")}
+                  className="cursor-pointer"
+                >
+                  Features
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection("pricing")}
+                  className="cursor-pointer"
+                >
+                  Pricing
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="cursor-pointer"
+                >
+                  Contact
+                </button>
+              </li>
+            </ul>
+            <ul className="flex flex-col gap-4 text-[16px] font-regular">
+              <li className="text-primary dark:text-textDark">Sign In</li>
+              <li>
+                <Button className="bg-[#143aa2] dark:bg-blue-600 text-white w-full">
                   Request a Demo
                 </Button>
               </li>
@@ -114,7 +188,7 @@ const Navbar = () => {
                 <Button
                   variant="default"
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="cursor-pointer text-white dark:text-gray-700   w-full"
+                  className="cursor-pointer text-white dark:text-gray-700 w-full"
                 >
                   {mounted && theme === "dark" ? (
                     <Sun size={20} className="mx-auto" />
