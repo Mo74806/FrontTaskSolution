@@ -99,7 +99,7 @@ const Navbar = () => {
       <ul className="hidden md:flex gap-x-[20px] items-center text-[16px] font-regular">
         <li className="text-primary dark:text-textDark">Sign In</li>
         <li>
-          <Button className="bg-[#143aa2] dark:bg-blue-600 text-white hover:border hover:border-[#143aa2] hover:text-[#143aa2] transition-all duration-300">
+          <Button className="bg-[#143aa2] cursor-pointer text-white hover:border hover:border-[#143aa2] hover:text-[#143aa2]   hover:dark:text-white hover:dark:border-white hover:bg-transparent transition-all duration-300">
             Request a Demo
           </Button>
         </li>
@@ -179,7 +179,8 @@ const Navbar = () => {
             <ul className="flex flex-col gap-4 text-[16px] font-regular">
               <li className="text-primary dark:text-textDark">Sign In</li>
               <li>
-                <Button className="bg-[#143aa2] dark:bg-blue-600 text-white w-full">
+                <Button className="bg-[#143aa2] cursor-pointer text-white hover:border hover:border-[#143aa2] hover:text-[#143aa2]   hover:dark:text-white hover:dark:border-white hover:bg-transparent transition-all duration-300">
+                  {" "}
                   Request a Demo
                 </Button>
               </li>

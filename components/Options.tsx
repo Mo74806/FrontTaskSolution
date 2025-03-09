@@ -20,9 +20,9 @@ const Options = () => {
               ${index === 3 && "rounded-bl-[40px]"}
               ${
                 selectedOptionIndex === index
-                  ? "gradient1 text-white"
+                  ? "bg-[linear-gradient(to_right,#143AA2,#143AA2,#143AA2,#3E8DE3)] text-white"
                   : "bg-white text-[#143AA2]"
-              }   hover:gradient1 hover:text-white transition-all duration-600`}
+              }   hover:bg-[linear-gradient(to_right,#143AA2,#143AA2,#143AA2,#3E8DE3)] hover:text-white transition-all duration-600`}
           >
             <p className="py-[16px] lg:py-[58px] px-[41px]">Consultants</p>
             <Image
